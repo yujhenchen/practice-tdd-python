@@ -1,5 +1,6 @@
 from budget_repo import IBudgetRepo
-
+import datetime
+import calendar
 
 class BudgetService:
     def __init__(self, budgetRepo) -> None:
@@ -12,17 +13,10 @@ class BudgetService:
             endYM = end.strftime("%Y%m")
             amount = budgetLs[0].amount
             diff_day = (end - start).days + 1
+            budgetMonth = datetime.datetime.strptime(budgetLs[0].yearMonth, "%Y%m")
+            days_in_month = calendar.monthrange(budgetMonth.year, budgetMonth.month)[1]
 
-            if budgetLs[0].yearMonth == startYM and diff_day == 31:
-                return amount
             if budgetLs[0].yearMonth == startYM:
-                return amount / 31
-            # amount = 0
-            # for b in budgetLs:
+                return amount / days_in_month * diff_day
 
-            #     if b.yearMonth == startYM:
-            #         amount = b.amount
-            #         break
-            # month_days =
-            # return amount / 31
         return 0.0
