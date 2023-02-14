@@ -2,7 +2,7 @@ import unittest
 
 
 class TennisTestCase(unittest.TestCase):
-    def test_love_all(self):
+    def test_love_all(self) -> None:
         pass
 
 
