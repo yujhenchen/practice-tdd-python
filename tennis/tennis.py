@@ -3,4 +3,4 @@ class Tennis:
         pass
 
     def get_result(self) -> str:
-        return ""
+        return 'love all'
