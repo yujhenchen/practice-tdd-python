@@ -7,6 +7,10 @@ class TennisTestCase(unittest.TestCase):
         tennis = Tennis()
         self.assertEqual("love all", tennis.get_result(0, 0))
 
+    def test_player1_scores_1(self) -> None:
+        tennis = Tennis()
+        self.assertEqual("fifteen love", tennis.get_result(1, 0))
+
 
 if __name__ == "__main__":
     unittest.main()
