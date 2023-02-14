@@ -1,12 +1,20 @@
+from player_score import PlayerScore
+
+
 class Tennis:
     def __init__(self) -> None:
-        self.scoreMap = {0: "love", 1: "fifteen"}
+        self.score_map = {0: "love", 1: "fifteen"}
+        self.score = PlayerScore()
 
-    def get_result(self, player1Scores, player2Scores) -> str:
-        if player1Scores == player2Scores:
+    def player1_scores(self) -> None:
+        self.score.player1 = self.score.player1 + 1
+
+    def player2_scores(self) -> None:
+        self.score.player2 = self.score.player2 + 1
+
+    def get_result(self) -> str:
+        if self.score.player1 == self.score.player2:
             return "love all"
-
-        return "{scoreStr1} {scoreStr2}".format(
-            scoreStr1=self.scoreMap[player1Scores],
-            scoreStr2=self.scoreMap[player2Scores],
+        return (
+            f"{self.score_map[self.score.player1]} {self.score_map[self.score.player2]}"
         )

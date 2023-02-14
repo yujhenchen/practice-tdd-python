@@ -3,13 +3,16 @@ from tennis import Tennis
 
 
 class TennisTestCase(unittest.TestCase):
+    def setUp(self) -> None:
+        self.tennis = Tennis()
+        return super().setUp()
+
     def test_love_all(self) -> None:
-        tennis = Tennis()
-        self.assertEqual("love all", tennis.get_result(0, 0))
+        self.assertEqual("love all", self.tennis.get_result())
 
     def test_player1_scores_1(self) -> None:
-        tennis = Tennis()
-        self.assertEqual("fifteen love", tennis.get_result(1, 0))
+        self.tennis.player1_scores()
+        self.assertEqual("fifteen love", self.tennis.get_result())
 
 
 if __name__ == "__main__":
