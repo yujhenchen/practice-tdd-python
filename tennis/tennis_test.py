@@ -1,10 +1,11 @@
 import unittest
+from player_score import PlayerScore
 from tennis import Tennis
 
 
 class TennisTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self.tennis = Tennis()
+        self.tennis = Tennis(PlayerScore())
         return super().setUp()
 
     def test_love_all(self) -> None:
